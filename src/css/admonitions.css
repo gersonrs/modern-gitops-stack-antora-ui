@@ -1,36 +1,130 @@
-.doc .admonitionblock .icon {
-  border-radius: 1rem;
+/* Modern Callout-style Admonitions */
+
+.doc .admonitionblock {
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  border: 1px solid var(--mg-border);
+  border-left-width: 4px;
+  background: var(--mg-bg-card);
+  overflow: hidden;
 }
 
-.doc .admonitionblock .icon i::after {
-  font-family: var(--body-font-family) !important;
+.doc .admonitionblock > table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-i.fa[class^='icon-'],
-i.fa[class*=' icon-']::before {
-  content: "";
-  height: 1.25rem;
-  width: 1.25rem;
-  margin-right: 0.25rem;
-  margin-left: -0.5rem;
+.doc .admonitionblock > table > tbody > tr {
+  display: flex;
+  flex-direction: column;
 }
 
-i.fa.icon-note::before {
-  background: no-repeat url("../img/admonitions/note.svg");
+.doc .admonitionblock td.icon {
+  padding: 0.65rem 1rem 0;
+  font-family: var(--monospace-font-family);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  background: transparent;
 }
 
-i.fa.icon-tip::before {
-  background: no-repeat url("../img/admonitions/tip.svg");
+.doc .admonitionblock td.icon i {
+  font-style: normal;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
 }
 
-i.fa.icon-important::before {
-  background: no-repeat url("../img/admonitions/important.svg");
+.doc .admonitionblock td.icon i::before {
+  display: inline-block;
+  font-size: 0.9rem;
 }
 
-i.fa.icon-warning::before {
-  background: no-repeat url("../img/admonitions/warning.svg");
+.doc .admonitionblock td.icon i::after {
+  content: attr(title);
 }
 
-i.fa.icon-caution::before {
-  background: no-repeat url("../img/admonitions/caution.svg");
+.doc .admonitionblock td.content {
+  padding: 0.4rem 1rem 0.85rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--mg-text-body);
+  border: none;
+  background: transparent;
+}
+
+.doc .admonitionblock td.content > :first-child {
+  margin-top: 0;
+}
+
+/* Note */
+.doc .admonitionblock.note {
+  border-left-color: var(--note-color);
+  background: rgba(56, 189, 248, 0.07);
+}
+
+.doc .admonitionblock.note td.icon {
+  color: var(--note-color);
+}
+
+.doc .admonitionblock.note td.icon i::before {
+  content: "ℹ";
+}
+
+/* Tip */
+.doc .admonitionblock.tip {
+  border-left-color: var(--tip-color);
+  background: rgba(100, 255, 218, 0.07);
+}
+
+.doc .admonitionblock.tip td.icon {
+  color: var(--tip-color);
+}
+
+.doc .admonitionblock.tip td.icon i::before {
+  content: "✦";
+}
+
+/* Important */
+.doc .admonitionblock.important {
+  border-left-color: var(--important-color);
+  background: rgba(167, 139, 250, 0.08);
+}
+
+.doc .admonitionblock.important td.icon {
+  color: var(--important-color);
+}
+
+.doc .admonitionblock.important td.icon i::before {
+  content: "◆";
+}
+
+/* Warning */
+.doc .admonitionblock.warning {
+  border-left-color: var(--warning-color);
+  background: rgba(251, 191, 36, 0.08);
+}
+
+.doc .admonitionblock.warning td.icon {
+  color: var(--warning-color);
+}
+
+.doc .admonitionblock.warning td.icon i::before {
+  content: "▲";
+}
+
+/* Caution */
+.doc .admonitionblock.caution {
+  border-left-color: var(--caution-color);
+  background: rgba(255, 107, 122, 0.08);
+}
+
+.doc .admonitionblock.caution td.icon {
+  color: var(--caution-color);
+}
+
+.doc .admonitionblock.caution td.icon i::before {
+  content: "!";
 }

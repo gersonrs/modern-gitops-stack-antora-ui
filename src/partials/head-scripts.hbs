@@ -1,5 +1,18 @@
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('mg-docs-theme');
+          if (saved === 'light' || saved === 'dark') {
+            document.documentElement.setAttribute('data-theme', saved);
+          } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
     {{#with site.keys.googleAnalytics}}
     <script async src="https://www.googletagmanager.com/gtag/js?id={{this}}"></script>
     <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','{{this}}')</script>
     {{/with}}
-    {{!-- <script>var uiRootPath = '{{{uiRootPath}}}'</script> --}}

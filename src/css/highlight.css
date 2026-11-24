@@ -1,80 +1,84 @@
-/*! Adapted from the GitHub style by Vasily Polovnyov <vast@whiteants.net> */
+/* Modern GitOps Stack - Dark Navy Syntax Highlighting (highlight.js) */
+
+.hljs {
+  color: #e2e8f0;
+  background: var(--pre-background);
+}
+
 .hljs-comment,
 .hljs-quote {
-  color: #998;
+  color: #64748b;
   font-style: italic;
 }
 
 .hljs-keyword,
 .hljs-selector-tag,
-.hljs-subst {
-  color: #333;
+.hljs-meta .hljs-keyword {
+  color: #c084fc;
   font-weight: var(--monospace-font-weight-bold);
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-property {
+  color: #38bdf8;
+}
+
+.hljs-string,
+.hljs-doctag,
+.hljs-regexp {
+  color: #64ffda;
 }
 
 .hljs-number,
 .hljs-literal,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag .hljs-attr {
-  color: #008080;
-}
-
-.hljs-string,
-.hljs-doctag {
-  color: var(--color-primary-100);
+.hljs-boolean {
+  color: #fbbf24;
 }
 
 .hljs-title,
 .hljs-section,
-.hljs-selector-id {
-  color: #f9ff00;
+.hljs-selector-id,
+.hljs-function .hljs-title {
+  color: #60a5fa;
   font-weight: var(--monospace-font-weight-bold);
-}
-
-.hljs-subst {
-  font-weight: normal;
 }
 
 .hljs-type,
-.hljs-class .hljs-title {
-  color: #458;
-  font-weight: var(--monospace-font-weight-bold);
+.hljs-class .hljs-title,
+.hljs-built_in {
+  color: #22d3ee;
+}
+
+.hljs-variable,
+.hljs-template-variable,
+.hljs-params {
+  color: #f472b6;
 }
 
 .hljs-tag,
-.hljs-name,
-.hljs-attribute {
-  color: #000080;
-  font-weight: normal;
-}
-
-.hljs-regexp,
-.hljs-link {
-  color: #009926;
+.hljs-name {
+  color: #818cf8;
 }
 
 .hljs-symbol,
-.hljs-bullet {
-  color: #990073;
-}
-
-.hljs-built_in,
-.hljs-builtin-name {
-  color: #0086b3;
+.hljs-bullet,
+.hljs-link {
+  color: #34d399;
 }
 
 .hljs-meta {
-  color: #999;
-  font-weight: var(--monospace-font-weight-bold);
-}
-
-.hljs-deletion {
-  background: #fdd;
+  color: #94a3b8;
 }
 
 .hljs-addition {
-  background: #dfd;
+  color: #64ffda;
+  background: rgba(100, 255, 218, 0.12);
+}
+
+.hljs-deletion {
+  color: #ff6b7a;
+  background: rgba(255, 107, 122, 0.14);
 }
 
 .hljs-emphasis {
