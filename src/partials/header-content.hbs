@@ -1,27 +1,88 @@
 <header class="header">
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Navegação principal">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://gersonrs.github.io/modern-gitops-stack">
-        <img width="200px" src="{{{uiRootPath}}}/img/logo.png" />
+      <a class="navbar-item navbar-logo-link" href="{{{or site.url (or siteRootUrl siteRootPath)}}}">
+        <svg class="mg-nav-logo" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="mgNavPipeGrad" x1="8" y1="8" x2="54" y2="54" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#64ffda"/>
+              <stop offset="100%" stop-color="#00d4ff"/>
+            </linearGradient>
+          </defs>
+          <path d="M46 11L21 15.5C14.5 16.8 12.5 23 19 25.8L41 33.5C47.5 36 46.5 44.5 38 46.8L22 50" stroke="url(#mgNavPipeGrad)" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M46 11L21 15.5C14.5 16.8 12.5 23 19 25.8L41 33.5C47.5 36 46.5 44.5 38 46.8L22 50" stroke="#0a192f" stroke-opacity="0.45" stroke-width="1.5" stroke-dasharray="1 7" stroke-linecap="round"/>
+          <circle cx="19" cy="46.5" r="11" fill="url(#mgNavPipeGrad)" stroke="#0a192f" stroke-width="1.5"/>
+          <circle cx="19" cy="46.5" r="5.2" fill="#0a192f"/>
+          <circle cx="19" cy="38.3" r="0.9" fill="#0a192f"/>
+          <circle cx="24.8" cy="40.7" r="0.9" fill="#0a192f"/>
+          <circle cx="27.2" cy="46.5" r="0.9" fill="#0a192f"/>
+          <circle cx="24.8" cy="52.3" r="0.9" fill="#0a192f"/>
+          <circle cx="19" cy="54.7" r="0.9" fill="#0a192f"/>
+          <circle cx="13.2" cy="52.3" r="0.9" fill="#0a192f"/>
+          <circle cx="10.8" cy="46.5" r="0.9" fill="#0a192f"/>
+          <circle cx="13.2" cy="40.7" r="0.9" fill="#0a192f"/>
+        </svg>
+        <span class="mg-nav-wordmark">
+          <span class="mg-nav-title">MODERN <span class="mg-nav-accent">GITOPS</span></span>
+          <span class="mg-nav-sub">STACK</span>
+        </span>
+        <span class="mg-nav-badge">DOCS</span>
       </a>
+
       {{#if env.SITE_SEARCH_PROVIDER}}
       <div class="navbar-item search hide-for-print">
-        <div id="search-field" class="field">
-          <input id="search-input" type="text" placeholder="Search the docs" {{#if page.home}} autofocus{{/if}}>
+        <div id="search-field" class="field mg-search-box">
+          <svg class="mg-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input id="search-input" type="text" placeholder="Buscar na documentação..." aria-label="Buscar na documentação"{{#if page.home}} autofocus{{/if}}>
+          <kbd class="mg-search-kbd" aria-hidden="true">/</kbd>
         </div>
       </div>
       {{/if}}
-      <button class="navbar-burger" data-target="topbar-nav">
+
+      <button class="navbar-burger" type="button" data-target="topbar-nav" aria-label="Abrir menu">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </div>
+
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
-        <a class="navbar-item" href="https://github.com/GersonRS/modern-gitops-stack"><i
-            class="fa fa-github-alt"></i>&nbsp;GitHub</a>
-        <a class="navbar-item" href="https://gersonrs.github.io">GersonRS</a>
+        <a class="navbar-item mg-nav-link" href="https://github.com/GersonRS/modern-gitops-stack" target="_blank" rel="noopener noreferrer">
+          <svg class="mg-inline-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+        <a class="navbar-item mg-nav-link" href="https://gersonrs.github.io" target="_blank" rel="noopener noreferrer">
+          <svg class="mg-inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span>GersonRS</span>
+        </a>
+        <div class="navbar-item mg-theme-toggle-wrap">
+          <button id="mg-theme-toggle" class="mg-theme-toggle" type="button" aria-label="Alternar tema claro/escuro" title="Alternar tema claro/escuro">
+            <svg class="mg-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <svg class="mg-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </nav>

@@ -1,15 +1,55 @@
 footer.footer {
-  background-color: var(--footer-background);
-  color: var(--footer-font-color);
-  font-size: calc(15 / var(--rem-base) * 1rem);
-  line-height: var(--footer-line-height);
-  padding: 1.5rem;
+  background: var(--mg-bg-base);
+  border-top: 1px solid var(--mg-border);
+  color: var(--mg-text-muted);
+  font-size: 0.82rem;
+  padding: 1.35rem 1.5rem;
 }
 
-.footer p {
-  margin: 0.5rem 0;
+.mg-footer-inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.85rem;
 }
 
-.footer a {
-  color: var(--footer-link-font-color);
+.mg-footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--mg-text-secondary);
+  font-weight: 500;
+}
+
+.mg-footer-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--mg-accent);
+  box-shadow: 0 0 8px rgba(100, 255, 218, 0.55);
+}
+
+.mg-footer-sep {
+  opacity: 0.45;
+}
+
+.mg-footer-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.15rem;
+  flex-wrap: wrap;
+}
+
+.mg-footer-links a {
+  color: var(--mg-text-secondary);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.mg-footer-links a:hover {
+  color: var(--mg-accent);
+  text-decoration: none;
 }

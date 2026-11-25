@@ -4,43 +4,39 @@ name: build-ui-bundle
 on:
   push:
     branches: ["main", "modern-gitops-stack"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 12
+          node-version: "22"
 
-      - name: Install Node.js dependencies
-        run: npm ci
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
 
-      - name: Run Gulp to create the ui-bundle.zip
-        run: gulp bundle
+      - name: Build Antora UI bundle
+        run: npm run bundle
 
-      - name: Delete last release
-        uses: dev-drprasad/delete-older-releases@v0.2.0
-        with:
-          keep_latest: 0
+      - name: Publish ui-bundle.zip release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create new release with new ui-bundle.zip
-        id: create_release
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        with:
-          tag_name: "${{ github.ref_name }}-latest"
-          name: "Release ${{ github.ref_name }}-latest"
-          body: |
-            Release of the Modern GitOps Stack's Antora UI `ui-bundle.zip` for ${{ github.ref_name }}
-          draft: false
-          prerelease: false
-          files: build/ui-bundle.zip
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG_NAME: "${{ github.ref_name }}-latest"
+        run: |
+          if gh release view "$TAG_NAME" >/dev/null 2>&1; then
+            gh release delete "$TAG_NAME" --yes --cleanup-tag
+          fi
+          gh release create "$TAG_NAME" build/ui-bundle.zip \
+            --target "${{ github.sha }}" \
+            --title "Release $TAG_NAME" \
+            --notes "Modern GitOps Stack Antora UI bundle (ui-bundle.zip) built from ${{ github.ref_name }}."

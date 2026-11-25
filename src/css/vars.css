@@ -1,169 +1,136 @@
-:root {
+/* Modern GitOps Stack - Documentation Design System
+   Dark Mode (default) aligned with Keycloak theme + Light Mode toggle */
 
-  /** CSS DARK THEME PRIMARY COLORS */
-  --color-primary-100: #64ffda;
-  --color-primary-200: #7dffde;
-  --color-primary-300: #91ffe2;
-  --color-primary-400: #a4ffe6;
-  --color-primary-500: #b5ffea;
-  --color-primary-600: #c5ffee;
-  /** CSS DARK THEME SURFACE COLORS */
-  --color-surface-100: #0a192f;
-  --color-surface-200: #232e43;
-  --color-surface-300: #3b4458;
-  --color-surface-400: #555c6e;
-  --color-surface-500: #6f7585;
-  --color-surface-600: #8a8f9c;
-  /* colors */
-  --color-white: var(--color-surface-100);
-  --color-smoke-10: #000;
-  --color-smoke-30: #191919;
-  --color-smoke-50: #222;
-  --color-smoke-70: #333;
-  --color-smoke-90: #424242;
-  --color-gray-10: #4a4a4a;
-  --color-gray-30: #5d5d5d;
-  --color-gray-40: #808080;
-  --color-gray-50: #8e8e8e;
-  --color-gray-70: #9c9c9c;
-  --color-jet-20: #c1c1c1;
-  --color-jet-30: #e1e1e1;
-  --color-jet-50: #f0f0f0;
-  --color-jet-70: #f5f5f5;
-  --color-jet-80: #fafafa;
-  --color-black: #fefefe;
-  /* modern gitops stack blue */
-  --color-background: var(--color-surface-100);
-  /* modern gitops stack blue */
-  --color-hover-background: var(--color-surface-200);
-  /* fonts */
-  --rem-base: 18;
-  /* used to compute rem value from desired pixel value (e.g., calc(18 / var(--rem-base) * 1rem) = 18px) */
-  --body-font-size: 1.0625em;
-  /* 17px */
-  --body-font-size--desktop: 1.125em;
-  /* 18px */
-  --body-font-size--print: 0.9375em;
-  /* 15px */
-  --body-line-height: 1.15;
-  --body-font-color: var(--color-jet-70);
-  --body-font-family: "Roboto", sans-serif;
-  --body-font-weight-bold: 500;
-  --monospace-font-family: "Roboto Mono", monospace;
-  --monospace-font-weight-bold: 500;
-  /* base */
-  --body-background: var(--color-white);
-  --panel-background: var(--color-surface-200);
-  --panel-border-color: var(--color-smoke-90);
-  --scrollbar-track-color: var(--color-smoke-30);
-  --scrollbar-thumb-color: var(--color-gray-10);
-  --scrollbar_hover-thumb-color: var(--color-gray-30);
-  /* navbar */
-  --navbar-background: var(--color-background);
-  --navbar-font-color: var(--color-primary-100);
-  --navbar_hover-background: var(--color-surface-200);
-  --navbar-button-background: var(--color-white);
-  --navbar-button-border-color: var(--panel-border-color);
-  --navbar-button-font-color: var(--body-font-color);
-  --navbar-menu-border-color: var(--panel-border-color);
-  --navbar-menu-background: var(--color-white);
-  --navbar-menu-font-color: var(--body-font-color);
-  --navbar-menu_hover-background: red;
-  /* nav */
-  --nav-background: var(--color-surface-100);
-  --nav-border-color: var(--color-gray-10);
-  --nav-line-height: 1.35;
-  --nav-heading-font-color: var(--color-jet-30);
-  --nav-muted-color: var(--color-gray-70);
-  --nav-panel-divider-color: var(--color-smoke-90);
-  --nav-secondary-background: var(--color-surface-200);
-  /* toolbar */
-  --toolbar-background: var(--color-surface-100);
-  --toolbar-border-color: var(--panel-border-color);
-  --toolbar-font-color: var(--color-gray-70);
-  --toolbar-muted-color: var(--color-gray-40);
-  --page-version-menu-background: var(--color-smoke-70);
-  --page-version-missing-font-color: var(--color-gray-40);
-  /* admonitions */
-  --caution-color: #a0439c;
-  --caution-on-color: var(--color-white);
-  --important-color: #d32f2f;
-  --important-on-color: var(--color-white);
-  --note-color: #217ee7;
-  --note-on-color: var(--color-white);
-  --tip-color: #41af46;
-  --tip-on-color: var(--color-white);
-  --warning-color: #e18114;
-  --warning-on-color: var(--color-white);
-  /* doc */
-  --doc-font-color: var(--color-jet-50);
-  --doc-font-size: inherit;
-  --doc-font-size--desktop: calc(17 / var(--rem-base) * 1rem);
-  --doc-line-height: 1.6;
-  --doc-margin: 0 auto;
-  --doc-margin--desktop: 0 2rem;
-  --heading-font-color: var(--color-jet-80);
-  --heading-font-weight: normal;
-  --alt-heading-font-weight: var(--body-font-weight-bold);
-  --section-divider-color: var(--panel-border-color);
-  --link-font-color: #64ffda;
-  --link_hover-font-color: #00b187;
-  --link_unresolved-font-color: var(--important-color);
-  --abstract-background: var(--color-smoke-70);
-  --abstract-font-color: var(--color-jet-20);
-  --abstract-border-color: var(--panel-border-color);
-  --admonition-background: var(--panel-background);
-  --admonition-label-font-weight: var(--body-font-weight-bold);
-  --caption-font-color: var(--color-gray-70);
-  --caption-font-style: italic;
-  --caption-font-weight: var(--body-font-weight-bold);
-  --code-background: var(--panel-background);
-  --code-font-color: var(--body-font-color);
-  --example-background: var(--color-white);
-  --example-border-color: var(--color-gray-70);
-  --kbd-background: var(--panel-background);
-  --kbd-border-color: var(--color-gray-10);
-  --pre-background: var(--panel-background);
-  --pre-border-color: var(--panel-border-color);
-  --pre-annotation-font-color: var(--color-gray-50);
-  --quote-background: var(--panel-background);
-  --quote-border-color: var(--color-gray-70);
-  --quote-font-color: var(--color-gray-70);
-  --quote-attribution-font-color: var(--color-gray-40);
-  --sidebar-background: var(--color-smoke-90);
-  --table-border-color: var(--panel-border-color);
-  --table-stripe-background: var(--panel-background);
-  --table-footer-background: linear-gradient(to bottom, var(--color-smoke-70) 0%, var(--color-white) 100%);
-  /* toc */
-  --toc-font-color: var(--nav-muted-color);
-  --toc-heading-font-color: var(--doc-font-color);
-  --toc-border-color: var(--panel-border-color);
-  --toc-line-height: 1.2;
-  /* footer */
-  --footer-line-height: var(--doc-line-height);
-  --footer-background: var(--color-smoke-90);
-  --footer-font-color: var(--color-gray-70);
-  --footer-link-font-color: var(--color-jet-80);
-  /* dimensions and positioning */
-  --navbar-height: calc(63 / var(--rem-base) * 1rem);
-  --toolbar-height: calc(45 / var(--rem-base) * 1rem);
-  --drawer-height: var(--toolbar-height);
+:root {
+  /* Core brand palette */
+  --mg-mint: #64ffda;
+  --mg-cyan: #00d4ff;
+  --mg-indigo: #6356e5;
+  --mg-indigo-soft: #8b80ff;
+
+  /* Dark mode surfaces */
+  --mg-bg-page: #050d1a;
+  --mg-bg-base: #0a192f;
+  --mg-bg-elevated: #0d1c33;
+  --mg-bg-card: rgba(17, 34, 64, 0.7);
+  --mg-bg-card-hover: rgba(22, 43, 79, 0.9);
+  --mg-bg-glass: rgba(7, 17, 33, 0.86);
+  --mg-bg-input: rgba(7, 19, 36, 0.92);
+  --mg-bg-code: #071324;
+  --mg-bg-inline-code: rgba(100, 255, 218, 0.1);
+  --mg-bg-hover: rgba(100, 255, 218, 0.08);
+  --mg-bg-active: rgba(100, 255, 218, 0.13);
+
+  /* Text colors */
+  --mg-text-primary: #e6f1ff;
+  --mg-text-body: #cbd5e1;
+  --mg-text-secondary: #94a3b8;
+  --mg-text-muted: #64748b;
+
+  /* Borders & accents */
+  --mg-border: rgba(148, 163, 184, 0.16);
+  --mg-border-strong: rgba(100, 255, 218, 0.24);
+  --mg-accent: #64ffda;
+  --mg-accent-hover: #00d4ff;
+  --mg-accent-contrast: #051324;
+  --mg-gradient-brand: linear-gradient(135deg, #64ffda 0%, #00d4ff 100%);
+  --mg-shadow-sm: 0 4px 16px rgba(2, 8, 20, 0.35);
+  --mg-shadow-lg: 0 20px 50px rgba(2, 8, 20, 0.65);
+
+  /* Semantic callout colors */
+  --note-color: #38bdf8;
+  --tip-color: #64ffda;
+  --important-color: #a78bfa;
+  --warning-color: #fbbf24;
+  --caution-color: #ff6b7a;
+
+  /* Typography */
+  --rem-base: 16;
+  --body-font-size: 1rem;
+  --body-font-size--desktop: 1rem;
+  --body-font-size--print: 0.92rem;
+  --body-line-height: 1.5;
+  --doc-line-height: 1.72;
+  --display-font-family: "Plus Jakarta Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --body-font-family: "Inter", system-ui, -apple-system, sans-serif;
+  --monospace-font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --body-font-weight-bold: 600;
+  --monospace-font-weight-bold: 600;
+
+  /* Legacy Antora variable mappings */
+  --body-background: var(--mg-bg-page);
+  --body-font-color: var(--mg-text-body);
+  --doc-font-color: var(--mg-text-body);
+  --heading-font-color: var(--mg-text-primary);
+  --link-font-color: var(--mg-accent);
+  --link_hover-font-color: var(--mg-accent-hover);
+  --link_unresolved-font-color: #ff6b7a;
+  --panel-background: var(--mg-bg-elevated);
+  --panel-border-color: var(--mg-border);
+  --scrollbar-track-color: transparent;
+  --scrollbar-thumb-color: rgba(148, 163, 184, 0.25);
+  --scrollbar_hover-thumb-color: rgba(100, 255, 218, 0.45);
+  --code-background: var(--mg-bg-inline-code);
+  --code-font-color: var(--mg-accent);
+  --pre-background: var(--mg-bg-code);
+  --pre-border-color: var(--mg-border);
+
+  /* Dimensions */
+  --navbar-height: 4rem;
+  --toolbar-height: 2.75rem;
+  --drawer-height: 3rem;
   --body-top: var(--navbar-height);
   --body-min-height: calc(100vh - var(--body-top));
   --nav-height: calc(var(--body-min-height) - var(--toolbar-height));
   --nav-height--desktop: var(--body-min-height);
-  --nav-panel-menu-height: calc(100% - var(--drawer-height));
-  --nav-panel-explore-height: calc(50% + var(--drawer-height));
-  --nav-width: calc(306 / var(--rem-base) * 1rem);
-  --toc-top: calc(var(--body-top) + var(--toolbar-height));
-  --toc-height: calc(100vh - var(--toc-top) - 2.5rem);
-  --toc-width: calc(180 / var(--rem-base) * 1rem);
-  --toc-width--widescreen: calc(270 / var(--rem-base) * 1rem);
-  --doc-max-width: calc(900 / var(--rem-base) * 1rem);
-  --doc-max-width--desktop: calc(1960 / var(--rem-base) * 1rem);
-  /* stacking */
-  --z-index-nav: 1;
-  --z-index-toolbar: 2;
-  --z-index-page-version-menu: 3;
-  --z-index-navbar: 4;
+  --nav-width: 17.5rem;
+  --toc-top: calc(var(--body-top) + var(--toolbar-height) + 1rem);
+  --toc-height: calc(100vh - var(--toc-top) - 2rem);
+  --toc-width: 14.5rem;
+  --toc-width--widescreen: 16rem;
+  --doc-max-width: 54rem;
+
+  /* Stacking */
+  --z-index-nav: 20;
+  --z-index-toolbar: 25;
+  --z-index-page-version-menu: 30;
+  --z-index-navbar: 40;
+}
+
+/* Light theme overrides */
+[data-theme="light"] {
+  --mg-bg-page: #f8fafc;
+  --mg-bg-base: #ffffff;
+  --mg-bg-elevated: #f1f5f9;
+  --mg-bg-card: #ffffff;
+  --mg-bg-card-hover: #f8fafc;
+  --mg-bg-glass: rgba(255, 255, 255, 0.88);
+  --mg-bg-input: #f1f5f9;
+  --mg-bg-code: #0f172a;
+  --mg-bg-inline-code: rgba(13, 148, 136, 0.1);
+  --mg-bg-hover: rgba(15, 23, 42, 0.05);
+  --mg-bg-active: rgba(13, 148, 136, 0.12);
+
+  --mg-text-primary: #0f172a;
+  --mg-text-body: #334155;
+  --mg-text-secondary: #475569;
+  --mg-text-muted: #64748b;
+
+  --mg-border: rgba(15, 23, 42, 0.1);
+  --mg-border-strong: rgba(13, 148, 136, 0.35);
+  --mg-accent: #0d9488;
+  --mg-accent-hover: #0284c7;
+  --mg-accent-contrast: #ffffff;
+  --mg-gradient-brand: linear-gradient(135deg, #0d9488 0%, #0284c7 100%);
+  --mg-shadow-sm: 0 4px 14px rgba(15, 23, 42, 0.06);
+  --mg-shadow-lg: 0 18px 40px rgba(15, 23, 42, 0.12);
+
+  --note-color: #0284c7;
+  --tip-color: #0d9488;
+  --important-color: #6356e5;
+  --warning-color: #d97706;
+  --caution-color: #dc2626;
+
+  --scrollbar-thumb-color: rgba(15, 23, 42, 0.2);
+  --scrollbar_hover-thumb-color: rgba(13, 148, 136, 0.5);
 }

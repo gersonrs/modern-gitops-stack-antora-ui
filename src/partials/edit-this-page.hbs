@@ -1,5 +1,21 @@
 {{#if (and page.fileUri (not env.CI))}}
-<div class="edit-this-page"><a href="{{page.fileUri}}">Edit this Page</a></div>
+<div class="edit-this-page">
+  <a href="{{page.fileUri}}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+      <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+    </svg>
+    <span>Editar página</span>
+  </a>
+</div>
 {{else if (and page.editUrl (or env.FORCE_SHOW_EDIT_PAGE_LINK (not page.origin.private)))}}
-<div class="edit-this-page"><a href="{{page.editUrl}}">Edit this Page</a></div>
+<div class="edit-this-page">
+  <a href="{{page.editUrl}}" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+      <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+    </svg>
+    <span>Editar no GitHub</span>
+  </a>
+</div>
 {{/if}}
